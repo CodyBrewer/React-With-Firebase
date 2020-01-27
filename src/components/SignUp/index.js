@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-import { FirebaseContext } from "../Firebase";
+import { FirebaseContext, withFirebase } from "../Firebase";
 import * as ROUTES from "../../constants/routes";
 
 const INITIAL_STATE = {
@@ -16,10 +16,7 @@ const SignupPage = () => {
   return (
     <div>
       <h1>SignUp</h1>
-
-      <FirebaseContext.Consumer>
-        <SignUpForm />
-      </FirebaseContext.Consumer>
+      <SignUpForm />
     </div>
   );
 };
@@ -89,6 +86,8 @@ const SignUpForm = props => {
     </form>
   );
 };
+
+class SignUpFormBase extends React.Component {}
 
 const SignupLink = () => {
   return (
